@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Actividad JSF #1</title>
+    </h:head>
+    <h:body>
+       
+        <h:form>
+            <h:panelGroup>
+                <style type ="text/css">
+                    body{background:azure}               
+                </style>
+                <h3>Introduzca la informacion</h3>
+                <table>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td>
+                            <h:inputText id="nombre" value="#{cineBb.nombre}"  required="true" label="Nombre requerido"/>   
+                            <h:message for="nombre"/>
+                        </td>              
+                    </tr>
+                     <tr>                   
+                        <td>Numero de silla</td>
+                        <td>
+                            <h:inputText id ="silla" value="#{cineBb.silla}" required="true" label="Ubicacion de silla requerida"/>  
+                            <h:message for="silla"/>
+                        </td>              
+                    </tr>          
+                </table>                
+               </h:panelGroup>
+            <h:commandButton value="Enviar" action="#{cineBb.mostrarInfo()}"/>    
+                    
+            <h:panelGroup>
+            <h:dataTable value="#{cineBb.miLista}" var="persona" border="0" cellpadding="0">
+                <h:column rowHeader="persona">
+                    <h:outputText value="#{persona.nombreVo}"></h:outputText>               
+                </h:column>
+                <h:column rowHeader="silla">                
+                    <h:outputText value="#{persona.sillaVo}"></h:outputText>                    
+                </h:column>         
+            </h:dataTable>
+            </h:panelGroup>
+
+    </h:form>
+    </h:body>
+    
+</html>
